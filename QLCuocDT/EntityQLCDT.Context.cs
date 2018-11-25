@@ -15,10 +15,10 @@ namespace QLCuocDT
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class QLTinhCuocDTEntities : DbContext
+    public partial class QLCuocDTEntities : DbContext
     {
-        public QLTinhCuocDTEntities()
-            : base("name=QLTinhCuocDTEntities")
+        public QLCuocDTEntities()
+            : base("name=QLCuocDTEntities")
         {
         }
     
@@ -27,13 +27,12 @@ namespace QLCuocDT
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ChiTietSuDung> ChiTietSuDungs { get; set; }
-        public virtual DbSet<GiaCuoc> GiaCuocs { get; set; }
-        public virtual DbSet<HoaDonDangKy> HoaDonDangKies { get; set; }
-        public virtual DbSet<HoaDonTinhCuoc> HoaDonTinhCuocs { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
+        public virtual DbSet<CUOCTHUEBAO> CUOCTHUEBAOs { get; set; }
+        public virtual DbSet<HOADON> HOADONs { get; set; }
+        public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<ThongTinSIM> ThongTinSIMs { get; set; }
+        public virtual DbSet<THOIGIANSUDUNG> THOIGIANSUDUNGs { get; set; }
+        public virtual DbSet<THONGTINSIM> THONGTINSIMs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -90,7 +89,7 @@ namespace QLCuocDT
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        public virtual int sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -100,10 +99,10 @@ namespace QLCuocDT
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        public virtual int sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -113,7 +112,7 @@ namespace QLCuocDT
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
         }
     
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)

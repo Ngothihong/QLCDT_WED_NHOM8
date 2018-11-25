@@ -1,60 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="QLTinhCuocDTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="ChiTietSuDung">
+<Schema Namespace="QLCuocDTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CUOCTHUEBAO">
     <Key>
-      <PropertyRef Name="MaChiTiet" />
+      <PropertyRef Name="IDcuoc" />
     </Key>
-    <Property Name="MaChiTiet" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="IDSIM" Type="varchar" MaxLength="10" />
-    <Property Name="TGBD" Type="datetime" />
-    <Property Name="TGKT" Type="datetime" />
-    <Property Name="SoPhutSD" Type="int" />
-    <Property Name="PhiCuocGoi" Type="decimal" Precision="19" Scale="3" />
-    <Property Name="Flag" Type="bit" />
+    <Property Name="IDcuoc" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Tencuoc" Type="nvarchar" MaxLength="50" />
+    <Property Name="TGBD" Type="time" Precision="7" />
+    <Property Name="TGKT" Type="time" Precision="7" />
+    <Property Name="Gia" Type="float" />
+    <Property Name="Ngayapdung" Type="date" />
   </EntityType>
-  <EntityType Name="GiaCuoc">
+  <EntityType Name="HOADON">
     <Key>
-      <PropertyRef Name="MaGiaCuoc" />
+      <PropertyRef Name="IDHD" />
     </Key>
-    <Property Name="MaGiaCuoc" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TGBD" Type="time" Precision="0" />
-    <Property Name="TGKT" Type="time" Precision="0" />
-    <Property Name="Gia" Type="decimal" Precision="19" Scale="3" />
-    <Property Name="Flag" Type="bit" />
+    <Property Name="IDHD" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IDsim" Type="varchar" MaxLength="20" />
+    <Property Name="TGBD" Type="date" />
+    <Property Name="TGKT" Type="date" />
+    <Property Name="SophutBN" Type="float" />
+    <Property Name="SophutBD" Type="float" />
+    <Property Name="TongSoTien" Type="float" />
+    <Property Name="Trangthai" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="HoaDonDangKy">
+  <EntityType Name="KHACHHANG">
     <Key>
-      <PropertyRef Name="MaHDDK" />
+      <PropertyRef Name="IDKHACHHANG" />
     </Key>
-    <Property Name="MaHDDK" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="IDSIM" Type="varchar" MaxLength="10" />
-    <Property Name="ChiPhiDangKy" Type="decimal" Precision="19" Scale="3" />
-    <Property Name="Flag" Type="bit" />
-  </EntityType>
-  <EntityType Name="HoaDonTinhCuoc">
-    <Key>
-      <PropertyRef Name="MaHDTC" />
-    </Key>
-    <Property Name="MaHDTC" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="IDSIM" Type="varchar" MaxLength="10" />
-    <Property Name="PhiThueBao" Type="decimal" Precision="19" Scale="3" />
-    <Property Name="TongTien" Type="decimal" Precision="19" Scale="3" />
-    <Property Name="NgayLapHD" Type="date" />
-    <Property Name="ThanhToan" Type="bit" />
-    <Property Name="Flag" Type="bit" />
-  </EntityType>
-  <EntityType Name="KhachHang">
-    <Key>
-      <PropertyRef Name="MaKH" />
-    </Key>
-    <Property Name="MaKH" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TenKH" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CMND" Type="varchar" MaxLength="10" />
-    <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="NgheNghiep" Type="nvarchar" MaxLength="50" />
-    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
-    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
-    <Property Name="Flag" Type="bit" />
+    <Property Name="IDKHACHHANG" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Tenkhachhang" Type="nvarchar" MaxLength="100" />
+    <Property Name="CMND" Type="char" MaxLength="20" />
+    <Property Name="Nghenghiep" Type="nvarchar" MaxLength="100" />
+    <Property Name="Chucvu" Type="nvarchar" MaxLength="100" />
+    <Property Name="Diachi" Type="text" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -66,61 +46,61 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="ThongTinSIM">
+  <EntityType Name="THOIGIANSUDUNG">
     <Key>
-      <PropertyRef Name="IDSIM" />
+      <PropertyRef Name="STT" />
     </Key>
-    <Property Name="IDSIM" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="MaKH" Type="varchar" MaxLength="20" />
-    <Property Name="NgayDangKy" Type="date" />
-    <Property Name="NgayHetHan" Type="date" />
-    <Property Name="Flag" Type="bit" />
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDSim" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TGBD" Type="datetime" />
+    <Property Name="TGKT" Type="datetime" />
+    <Property Name="SophutBN" Type="float" />
+    <Property Name="SophutBD" Type="float" />
+    <Property Name="Gia" Type="float" />
   </EntityType>
-  <Association Name="FK__ChiTietSu__IDSIM__1B0907CE">
-    <End Role="ThongTinSIM" Type="Self.ThongTinSIM" Multiplicity="0..1" />
-    <End Role="ChiTietSuDung" Type="Self.ChiTietSuDung" Multiplicity="*" />
+  <EntityType Name="THONGTINSIM">
+    <Key>
+      <PropertyRef Name="IDSim" />
+    </Key>
+    <Property Name="IDSim" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IDKHACHHANG" Type="varchar" MaxLength="20" />
+    <Property Name="Sdt" Type="varchar" MaxLength="20" />
+    <Property Name="NgayDK" Type="date" />
+    <Property Name="CuocDK" Type="float" />
+  </EntityType>
+  <Association Name="FK_HOADON_THONGTINSIM">
+    <End Role="THONGTINSIM" Type="Self.THONGTINSIM" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ThongTinSIM">
-        <PropertyRef Name="IDSIM" />
+      <Principal Role="THONGTINSIM">
+        <PropertyRef Name="IDSim" />
       </Principal>
-      <Dependent Role="ChiTietSuDung">
-        <PropertyRef Name="IDSIM" />
+      <Dependent Role="HOADON">
+        <PropertyRef Name="IDsim" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HoaDonDan__IDSIM__15502E78">
-    <End Role="ThongTinSIM" Type="Self.ThongTinSIM" Multiplicity="0..1" />
-    <End Role="HoaDonDangKy" Type="Self.HoaDonDangKy" Multiplicity="*" />
+  <Association Name="FK_THOIGIANSUDUNG_THONGTINSIM">
+    <End Role="THONGTINSIM" Type="Self.THONGTINSIM" Multiplicity="1" />
+    <End Role="THOIGIANSUDUNG" Type="Self.THOIGIANSUDUNG" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ThongTinSIM">
-        <PropertyRef Name="IDSIM" />
+      <Principal Role="THONGTINSIM">
+        <PropertyRef Name="IDSim" />
       </Principal>
-      <Dependent Role="HoaDonDangKy">
-        <PropertyRef Name="IDSIM" />
+      <Dependent Role="THOIGIANSUDUNG">
+        <PropertyRef Name="IDSim" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HoaDonTin__IDSIM__182C9B23">
-    <End Role="ThongTinSIM" Type="Self.ThongTinSIM" Multiplicity="0..1" />
-    <End Role="HoaDonTinhCuoc" Type="Self.HoaDonTinhCuoc" Multiplicity="*" />
+  <Association Name="FK_THONGTINSIM_KHACHHANG">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="THONGTINSIM" Type="Self.THONGTINSIM" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ThongTinSIM">
-        <PropertyRef Name="IDSIM" />
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="IDKHACHHANG" />
       </Principal>
-      <Dependent Role="HoaDonTinhCuoc">
-        <PropertyRef Name="IDSIM" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__ThongTinSI__MaKH__1273C1CD">
-    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
-    <End Role="ThongTinSIM" Type="Self.ThongTinSIM" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KhachHang">
-        <PropertyRef Name="MaKH" />
-      </Principal>
-      <Dependent Role="ThongTinSIM">
-        <PropertyRef Name="MaKH" />
+      <Dependent Role="THONGTINSIM">
+        <PropertyRef Name="IDKHACHHANG" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -155,29 +135,24 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <EntityContainer Name="QLTinhCuocDTModelStoreContainer">
-    <EntitySet Name="ChiTietSuDung" EntityType="Self.ChiTietSuDung" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="GiaCuoc" EntityType="Self.GiaCuoc" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="HoaDonDangKy" EntityType="Self.HoaDonDangKy" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="HoaDonTinhCuoc" EntityType="Self.HoaDonTinhCuoc" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+  <EntityContainer Name="QLCuocDTModelStoreContainer">
+    <EntitySet Name="CUOCTHUEBAO" EntityType="Self.CUOCTHUEBAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ThongTinSIM" EntityType="Self.ThongTinSIM" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__ChiTietSu__IDSIM__1B0907CE" Association="Self.FK__ChiTietSu__IDSIM__1B0907CE">
-      <End Role="ThongTinSIM" EntitySet="ThongTinSIM" />
-      <End Role="ChiTietSuDung" EntitySet="ChiTietSuDung" />
+    <EntitySet Name="THOIGIANSUDUNG" EntityType="Self.THOIGIANSUDUNG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THONGTINSIM" EntityType="Self.THONGTINSIM" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_HOADON_THONGTINSIM" Association="Self.FK_HOADON_THONGTINSIM">
+      <End Role="THONGTINSIM" EntitySet="THONGTINSIM" />
+      <End Role="HOADON" EntitySet="HOADON" />
     </AssociationSet>
-    <AssociationSet Name="FK__HoaDonDan__IDSIM__15502E78" Association="Self.FK__HoaDonDan__IDSIM__15502E78">
-      <End Role="ThongTinSIM" EntitySet="ThongTinSIM" />
-      <End Role="HoaDonDangKy" EntitySet="HoaDonDangKy" />
+    <AssociationSet Name="FK_THOIGIANSUDUNG_THONGTINSIM" Association="Self.FK_THOIGIANSUDUNG_THONGTINSIM">
+      <End Role="THONGTINSIM" EntitySet="THONGTINSIM" />
+      <End Role="THOIGIANSUDUNG" EntitySet="THOIGIANSUDUNG" />
     </AssociationSet>
-    <AssociationSet Name="FK__HoaDonTin__IDSIM__182C9B23" Association="Self.FK__HoaDonTin__IDSIM__182C9B23">
-      <End Role="ThongTinSIM" EntitySet="ThongTinSIM" />
-      <End Role="HoaDonTinhCuoc" EntitySet="HoaDonTinhCuoc" />
-    </AssociationSet>
-    <AssociationSet Name="FK__ThongTinSI__MaKH__1273C1CD" Association="Self.FK__ThongTinSI__MaKH__1273C1CD">
-      <End Role="KhachHang" EntitySet="KhachHang" />
-      <End Role="ThongTinSIM" EntitySet="ThongTinSIM" />
+    <AssociationSet Name="FK_THONGTINSIM_KHACHHANG" Association="Self.FK_THONGTINSIM_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="THONGTINSIM" EntitySet="THONGTINSIM" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

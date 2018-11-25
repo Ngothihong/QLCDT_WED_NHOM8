@@ -12,24 +12,23 @@ namespace QLCuocDT
     using System;
     using System.Collections.Generic;
     
-    public partial class KhachHang
+    public partial class KHACHHANG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KhachHang()
+        public KHACHHANG()
         {
-            this.ThongTinSIMs = new HashSet<ThongTinSIM>();
+            this.THONGTINSIMs = new HashSet<THONGTINSIM>();
         }
     
-        public string MaKH { get; set; }
-        public string TenKH { get; set; }
+        public string IDKHACHHANG { get; set; }
+        public string Tenkhachhang { get; set; }
         public string CMND { get; set; }
+        public string Nghenghiep { get; set; }
+        public string Chucvu { get; set; }
+        public string Diachi { get; set; }
         public string Email { get; set; }
-        public string NgheNghiep { get; set; }
-        public string ChucVu { get; set; }
-        public string DiaChi { get; set; }
-        public Nullable<bool> Flag { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThongTinSIM> ThongTinSIMs { get; set; }
+        public virtual ICollection<THONGTINSIM> THONGTINSIMs { get; set; }
     }
 }

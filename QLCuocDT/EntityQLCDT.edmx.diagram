@@ -4,18 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9f146c62840f4dd6a16564b20b45296f" Name="Diagram1">
-        <EntityTypeShape EntityType="QLTinhCuocDTModel.ChiTietSuDung" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLTinhCuocDTModel.GiaCuoc" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLTinhCuocDTModel.HoaDonDangKy" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLTinhCuocDTModel.HoaDonTinhCuoc" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLTinhCuocDTModel.KhachHang" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLTinhCuocDTModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLTinhCuocDTModel.ThongTinSIM" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <AssociationConnector Association="QLTinhCuocDTModel.FK__ChiTietSu__IDSIM__1B0907CE" ManuallyRouted="false" />
-        <AssociationConnector Association="QLTinhCuocDTModel.FK__HoaDonDan__IDSIM__15502E78" ManuallyRouted="false" />
-        <AssociationConnector Association="QLTinhCuocDTModel.FK__HoaDonTin__IDSIM__182C9B23" ManuallyRouted="false" />
-        <AssociationConnector Association="QLTinhCuocDTModel.FK__ThongTinSI__MaKH__1273C1CD" ManuallyRouted="false" />
+      <Diagram DiagramId="98b015e47f5c4ffb82ba5ab4889f0a65" Name="Diagram1">
+        <EntityTypeShape EntityType="QLCuocDTModel.CUOCTHUEBAO" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCuocDTModel.HOADON" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCuocDTModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCuocDTModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCuocDTModel.THOIGIANSUDUNG" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCuocDTModel.THONGTINSIM" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="QLCuocDTModel.FK_HOADON_THONGTINSIM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCuocDTModel.FK_THONGTINSIM_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCuocDTModel.FK_THOIGIANSUDUNG_THONGTINSIM" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,69 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QLTinhCuocDTModelStoreContainer" CdmEntityContainer="QLTinhCuocDTEntities">
-    <EntitySetMapping Name="ChiTietSuDungs">
-      <EntityTypeMapping TypeName="QLTinhCuocDTModel.ChiTietSuDung">
-        <MappingFragment StoreEntitySet="ChiTietSuDung">
-          <ScalarProperty Name="MaChiTiet" ColumnName="MaChiTiet" />
-          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
-          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
-          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
-          <ScalarProperty Name="SoPhutSD" ColumnName="SoPhutSD" />
-          <ScalarProperty Name="PhiCuocGoi" ColumnName="PhiCuocGoi" />
-          <ScalarProperty Name="Flag" ColumnName="Flag" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GiaCuocs">
-      <EntityTypeMapping TypeName="QLTinhCuocDTModel.GiaCuoc">
-        <MappingFragment StoreEntitySet="GiaCuoc">
-          <ScalarProperty Name="MaGiaCuoc" ColumnName="MaGiaCuoc" />
+  <EntityContainerMapping StorageEntityContainer="QLCuocDTModelStoreContainer" CdmEntityContainer="QLCuocDTEntities">
+    <EntitySetMapping Name="CUOCTHUEBAOs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.CUOCTHUEBAO">
+        <MappingFragment StoreEntitySet="CUOCTHUEBAO">
+          <ScalarProperty Name="IDcuoc" ColumnName="IDcuoc" />
+          <ScalarProperty Name="Tencuoc" ColumnName="Tencuoc" />
           <ScalarProperty Name="TGBD" ColumnName="TGBD" />
           <ScalarProperty Name="TGKT" ColumnName="TGKT" />
           <ScalarProperty Name="Gia" ColumnName="Gia" />
-          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="Ngayapdung" ColumnName="Ngayapdung" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HoaDonDangKies">
-      <EntityTypeMapping TypeName="QLTinhCuocDTModel.HoaDonDangKy">
-        <MappingFragment StoreEntitySet="HoaDonDangKy">
-          <ScalarProperty Name="MaHDDK" ColumnName="MaHDDK" />
-          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
-          <ScalarProperty Name="ChiPhiDangKy" ColumnName="ChiPhiDangKy" />
-          <ScalarProperty Name="Flag" ColumnName="Flag" />
+    <EntitySetMapping Name="HOADONs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.HOADON">
+        <MappingFragment StoreEntitySet="HOADON">
+          <ScalarProperty Name="IDHD" ColumnName="IDHD" />
+          <ScalarProperty Name="IDsim" ColumnName="IDsim" />
+          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
+          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
+          <ScalarProperty Name="SophutBN" ColumnName="SophutBN" />
+          <ScalarProperty Name="SophutBD" ColumnName="SophutBD" />
+          <ScalarProperty Name="TongSoTien" ColumnName="TongSoTien" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HoaDonTinhCuocs">
-      <EntityTypeMapping TypeName="QLTinhCuocDTModel.HoaDonTinhCuoc">
-        <MappingFragment StoreEntitySet="HoaDonTinhCuoc">
-          <ScalarProperty Name="MaHDTC" ColumnName="MaHDTC" />
-          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
-          <ScalarProperty Name="PhiThueBao" ColumnName="PhiThueBao" />
-          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-          <ScalarProperty Name="NgayLapHD" ColumnName="NgayLapHD" />
-          <ScalarProperty Name="ThanhToan" ColumnName="ThanhToan" />
-          <ScalarProperty Name="Flag" ColumnName="Flag" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="KhachHangs">
-      <EntityTypeMapping TypeName="QLTinhCuocDTModel.KhachHang">
-        <MappingFragment StoreEntitySet="KhachHang">
-          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
-          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+          <ScalarProperty Name="Tenkhachhang" ColumnName="Tenkhachhang" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="Nghenghiep" ColumnName="Nghenghiep" />
+          <ScalarProperty Name="Chucvu" ColumnName="Chucvu" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="NgheNghiep" ColumnName="NgheNghiep" />
-          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
-          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-          <ScalarProperty Name="Flag" ColumnName="Flag" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="QLTinhCuocDTModel.sysdiagram">
+      <EntityTypeMapping TypeName="QLCuocDTModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -73,40 +51,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ThongTinSIMs">
-      <EntityTypeMapping TypeName="QLTinhCuocDTModel.ThongTinSIM">
-        <MappingFragment StoreEntitySet="ThongTinSIM">
-          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
-          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
-          <ScalarProperty Name="NgayDangKy" ColumnName="NgayDangKy" />
-          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
-          <ScalarProperty Name="Flag" ColumnName="Flag" />
+    <EntitySetMapping Name="THOIGIANSUDUNGs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.THOIGIANSUDUNG">
+        <MappingFragment StoreEntitySet="THOIGIANSUDUNG">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="IDSim" ColumnName="IDSim" />
+          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
+          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
+          <ScalarProperty Name="SophutBN" ColumnName="SophutBN" />
+          <ScalarProperty Name="SophutBD" ColumnName="SophutBD" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLTinhCuocDTModel.Store.sp_alterdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLTinhCuocDTModel.Store.sp_creatediagram" />
-    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLTinhCuocDTModel.Store.sp_dropdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QLTinhCuocDTModel.Store.sp_helpdiagramdefinition">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="QLTinhCuocDTModel.sp_helpdiagramdefinition_Result">
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QLTinhCuocDTModel.Store.sp_helpdiagrams">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="QLTinhCuocDTModel.sp_helpdiagrams_Result">
-          <ScalarProperty Name="Database" ColumnName="Database" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Owner" ColumnName="Owner" />
-          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QLTinhCuocDTModel.Store.sp_renamediagram" />
-    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QLTinhCuocDTModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="THONGTINSIMs">
+      <EntityTypeMapping TypeName="QLCuocDTModel.THONGTINSIM">
+        <MappingFragment StoreEntitySet="THONGTINSIM">
+          <ScalarProperty Name="IDSim" ColumnName="IDSim" />
+          <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+          <ScalarProperty Name="Sdt" ColumnName="Sdt" />
+          <ScalarProperty Name="NgayDK" ColumnName="NgayDK" />
+          <ScalarProperty Name="CuocDK" ColumnName="CuocDK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLCuocDTModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLCuocDTModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLCuocDTModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QLCuocDTModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QLCuocDTModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QLCuocDTModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QLCuocDTModel.Store.sp_upgraddiagrams" />
   </EntityContainerMapping>
 </Mapping>
