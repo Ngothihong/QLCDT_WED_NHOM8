@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLICDTModelStoreContainer" CdmEntityContainer="QUANLICDTEntities1">
+    <EntitySetMapping Name="CHITIETSDs">
+      <EntityTypeMapping TypeName="QUANLICDTModel.CHITIETSD">
+        <MappingFragment StoreEntitySet="CHITIETSD">
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
+          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
+          <ScalarProperty Name="SOPHUTSD" ColumnName="SOPHUTSD" />
+          <ScalarProperty Name="CUOCPHI" ColumnName="CUOCPHI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIACUOCs">
+      <EntityTypeMapping TypeName="QUANLICDTModel.GIACUOC">
+        <MappingFragment StoreEntitySet="GIACUOC">
+          <ScalarProperty Name="MAGC" ColumnName="MAGC" />
+          <ScalarProperty Name="TGBD" ColumnName="TGBD" />
+          <ScalarProperty Name="TGKT" ColumnName="TGKT" />
+          <ScalarProperty Name="GIACUOC1" ColumnName="GIACUOC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HDDKs">
+      <EntityTypeMapping TypeName="QUANLICDTModel.HDDK">
+        <MappingFragment StoreEntitySet="HDDK">
+          <ScalarProperty Name="MAHDDK" ColumnName="MAHDDK" />
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="CUOCDK" ColumnName="CUOCDK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HDTCs">
+      <EntityTypeMapping TypeName="QUANLICDTModel.HDTC">
+        <MappingFragment StoreEntitySet="HDTC">
+          <ScalarProperty Name="MAHDTC" ColumnName="MAHDTC" />
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="QUANLICDTModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="NGHENGHIEP" ColumnName="NGHENGHIEP" />
+          <ScalarProperty Name="CHUCVU" ColumnName="CHUCVU" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONGTINSIMs">
+      <EntityTypeMapping TypeName="QUANLICDTModel.THONGTINSIM">
+        <MappingFragment StoreEntitySet="THONGTINSIM">
+          <ScalarProperty Name="IDSIM" ColumnName="IDSIM" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLICDTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHITIETSD">
+    <Key>
+      <PropertyRef Name="IDSIM" />
+      <PropertyRef Name="TGBD" />
+      <PropertyRef Name="TGKT" />
+    </Key>
+    <Property Name="IDSIM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TGBD" Type="time" Precision="7" Nullable="false" />
+    <Property Name="TGKT" Type="time" Precision="7" Nullable="false" />
+    <Property Name="SOPHUTSD" Type="float" Nullable="false" />
+    <Property Name="CUOCPHI" Type="decimal" Precision="19" Scale="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GIACUOC">
+    <Key>
+      <PropertyRef Name="MAGC" />
+    </Key>
+    <Property Name="MAGC" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TGBD" Type="time" Precision="7" Nullable="false" />
+    <Property Name="TGKT" Type="time" Precision="7" Nullable="false" />
+    <Property Name="GIACUOC" Type="decimal" Precision="19" Scale="3" />
+  </EntityType>
+  <EntityType Name="HDDK">
+    <Key>
+      <PropertyRef Name="MAHDDK" />
+    </Key>
+    <Property Name="MAHDDK" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="IDSIM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CUOCDK" Type="decimal" Precision="19" Scale="3" />
+  </EntityType>
+  <EntityType Name="HDTC">
+    <Key>
+      <PropertyRef Name="MAHDTC" />
+    </Key>
+    <Property Name="MAHDTC" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="IDSIM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TONGTIEN" Type="decimal" Precision="19" Scale="3" Nullable="false" />
+    <Property Name="TRANGTHAI" Type="bit" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="MAKH" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TENKH" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CMND" Type="varchar" MaxLength="12" />
+    <Property Name="NGHENGHIEP" Type="nvarchar" MaxLength="50" />
+    <Property Name="CHUCVU" Type="nvarchar" MaxLength="50" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="THONGTINSIM">
+    <Key>
+      <PropertyRef Name="IDSIM" />
+    </Key>
+    <Property Name="IDSIM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MAKH" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SDT" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CHITIETSD__CUOCP__1DE57479">
+    <End Role="THONGTINSIM" Type="Self.THONGTINSIM" Multiplicity="1" />
+    <End Role="CHITIETSD" Type="Self.CHITIETSD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THONGTINSIM">
+        <PropertyRef Name="IDSIM" />
+      </Principal>
+      <Dependent Role="CHITIETSD">
+        <PropertyRef Name="IDSIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HDDK__IDSIM__173876EA">
+    <End Role="THONGTINSIM" Type="Self.THONGTINSIM" Multiplicity="1" />
+    <End Role="HDDK" Type="Self.HDDK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THONGTINSIM">
+        <PropertyRef Name="IDSIM" />
+      </Principal>
+      <Dependent Role="HDDK">
+        <PropertyRef Name="IDSIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HDTC__TRANGTHAI__1B0907CE">
+    <End Role="THONGTINSIM" Type="Self.THONGTINSIM" Multiplicity="1" />
+    <End Role="HDTC" Type="Self.HDTC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THONGTINSIM">
+        <PropertyRef Name="IDSIM" />
+      </Principal>
+      <Dependent Role="HDTC">
+        <PropertyRef Name="IDSIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THONGTINSIM__SDT__1367E606">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+    <End Role="THONGTINSIM" Type="Self.THONGTINSIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="THONGTINSIM">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUANLICDTModelStoreContainer">
+    <EntitySet Name="CHITIETSD" EntityType="Self.CHITIETSD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIACUOC" EntityType="Self.GIACUOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HDDK" EntityType="Self.HDDK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HDTC" EntityType="Self.HDTC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THONGTINSIM" EntityType="Self.THONGTINSIM" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CHITIETSD__CUOCP__1DE57479" Association="Self.FK__CHITIETSD__CUOCP__1DE57479">
+      <End Role="THONGTINSIM" EntitySet="THONGTINSIM" />
+      <End Role="CHITIETSD" EntitySet="CHITIETSD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HDDK__IDSIM__173876EA" Association="Self.FK__HDDK__IDSIM__173876EA">
+      <End Role="THONGTINSIM" EntitySet="THONGTINSIM" />
+      <End Role="HDDK" EntitySet="HDDK" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HDTC__TRANGTHAI__1B0907CE" Association="Self.FK__HDTC__TRANGTHAI__1B0907CE">
+      <End Role="THONGTINSIM" EntitySet="THONGTINSIM" />
+      <End Role="HDTC" EntitySet="HDTC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THONGTINSIM__SDT__1367E606" Association="Self.FK__THONGTINSIM__SDT__1367E606">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="THONGTINSIM" EntitySet="THONGTINSIM" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

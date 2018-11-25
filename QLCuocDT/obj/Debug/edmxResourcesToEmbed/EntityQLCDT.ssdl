@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLTinhCuocDTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietSuDung">
+    <Key>
+      <PropertyRef Name="MaChiTiet" />
+    </Key>
+    <Property Name="MaChiTiet" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="IDSIM" Type="varchar" MaxLength="10" />
+    <Property Name="TGBD" Type="datetime" />
+    <Property Name="TGKT" Type="datetime" />
+    <Property Name="SoPhutSD" Type="int" />
+    <Property Name="PhiCuocGoi" Type="decimal" Precision="19" Scale="3" />
+    <Property Name="Flag" Type="bit" />
+  </EntityType>
+  <EntityType Name="GiaCuoc">
+    <Key>
+      <PropertyRef Name="MaGiaCuoc" />
+    </Key>
+    <Property Name="MaGiaCuoc" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TGBD" Type="time" Precision="0" />
+    <Property Name="TGKT" Type="time" Precision="0" />
+    <Property Name="Gia" Type="decimal" Precision="19" Scale="3" />
+    <Property Name="Flag" Type="bit" />
+  </EntityType>
+  <EntityType Name="HoaDonDangKy">
+    <Key>
+      <PropertyRef Name="MaHDDK" />
+    </Key>
+    <Property Name="MaHDDK" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IDSIM" Type="varchar" MaxLength="10" />
+    <Property Name="ChiPhiDangKy" Type="decimal" Precision="19" Scale="3" />
+    <Property Name="Flag" Type="bit" />
+  </EntityType>
+  <EntityType Name="HoaDonTinhCuoc">
+    <Key>
+      <PropertyRef Name="MaHDTC" />
+    </Key>
+    <Property Name="MaHDTC" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IDSIM" Type="varchar" MaxLength="10" />
+    <Property Name="PhiThueBao" Type="decimal" Precision="19" Scale="3" />
+    <Property Name="TongTien" Type="decimal" Precision="19" Scale="3" />
+    <Property Name="NgayLapHD" Type="date" />
+    <Property Name="ThanhToan" Type="bit" />
+    <Property Name="Flag" Type="bit" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CMND" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="NgheNghiep" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Flag" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ThongTinSIM">
+    <Key>
+      <PropertyRef Name="IDSIM" />
+    </Key>
+    <Property Name="IDSIM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaKH" Type="varchar" MaxLength="20" />
+    <Property Name="NgayDangKy" Type="date" />
+    <Property Name="NgayHetHan" Type="date" />
+    <Property Name="Flag" Type="bit" />
+  </EntityType>
+  <Association Name="FK__ChiTietSu__IDSIM__1B0907CE">
+    <End Role="ThongTinSIM" Type="Self.ThongTinSIM" Multiplicity="0..1" />
+    <End Role="ChiTietSuDung" Type="Self.ChiTietSuDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongTinSIM">
+        <PropertyRef Name="IDSIM" />
+      </Principal>
+      <Dependent Role="ChiTietSuDung">
+        <PropertyRef Name="IDSIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HoaDonDan__IDSIM__15502E78">
+    <End Role="ThongTinSIM" Type="Self.ThongTinSIM" Multiplicity="0..1" />
+    <End Role="HoaDonDangKy" Type="Self.HoaDonDangKy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongTinSIM">
+        <PropertyRef Name="IDSIM" />
+      </Principal>
+      <Dependent Role="HoaDonDangKy">
+        <PropertyRef Name="IDSIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HoaDonTin__IDSIM__182C9B23">
+    <End Role="ThongTinSIM" Type="Self.ThongTinSIM" Multiplicity="0..1" />
+    <End Role="HoaDonTinhCuoc" Type="Self.HoaDonTinhCuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongTinSIM">
+        <PropertyRef Name="IDSIM" />
+      </Principal>
+      <Dependent Role="HoaDonTinhCuoc">
+        <PropertyRef Name="IDSIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ThongTinSI__MaKH__1273C1CD">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="ThongTinSIM" Type="Self.ThongTinSIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="ThongTinSIM">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QLTinhCuocDTModelStoreContainer">
+    <EntitySet Name="ChiTietSuDung" EntityType="Self.ChiTietSuDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiaCuoc" EntityType="Self.GiaCuoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDonDangKy" EntityType="Self.HoaDonDangKy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDonTinhCuoc" EntityType="Self.HoaDonTinhCuoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThongTinSIM" EntityType="Self.ThongTinSIM" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ChiTietSu__IDSIM__1B0907CE" Association="Self.FK__ChiTietSu__IDSIM__1B0907CE">
+      <End Role="ThongTinSIM" EntitySet="ThongTinSIM" />
+      <End Role="ChiTietSuDung" EntitySet="ChiTietSuDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HoaDonDan__IDSIM__15502E78" Association="Self.FK__HoaDonDan__IDSIM__15502E78">
+      <End Role="ThongTinSIM" EntitySet="ThongTinSIM" />
+      <End Role="HoaDonDangKy" EntitySet="HoaDonDangKy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HoaDonTin__IDSIM__182C9B23" Association="Self.FK__HoaDonTin__IDSIM__182C9B23">
+      <End Role="ThongTinSIM" EntitySet="ThongTinSIM" />
+      <End Role="HoaDonTinhCuoc" EntitySet="HoaDonTinhCuoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ThongTinSI__MaKH__1273C1CD" Association="Self.FK__ThongTinSI__MaKH__1273C1CD">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="ThongTinSIM" EntitySet="ThongTinSIM" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
